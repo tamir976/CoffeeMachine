@@ -34,7 +34,7 @@ namespace CoffeeMachine
                 return false;
             }
         }
-        private static ResourceLevels ReadResourceLevels()
+        public static ResourceLevels ReadResourceLevels()
         {
             string json = File.ReadAllText("D:\\Coffee machine\\CoffeeMachine\\CoffeeMachine\\resources.json");
             return JsonSerializer.Deserialize<ResourceLevels>(json);

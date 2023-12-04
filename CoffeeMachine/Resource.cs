@@ -7,26 +7,24 @@ using System.Text.Json;
 using System.IO;
 namespace CoffeeMachine
 {
-    public class Resource
+    public class Resource : Coffee
     {
 
-        private Resources resource;
+        public override void Brew()
+        {
+            
+        }
+        private ResourceLevels? resource;
         public void ResourceCheck()
         {
             resource = ReadResource();
-            Console.WriteLine($"Water: {resource.Water}, Milk: {resource.Milk}, Beans: {resource.Beans}");
+            Console.WriteLine($"Water: {resource.Water}, \nMilk: {resource.Milk}, \nBeans: {resource.Beans}");
         }
         
-        private Resources ReadResource()
+        private ResourceLevels ReadResource()
         {
             string json = File.ReadAllText("D:\\Coffee machine\\CoffeeMachine\\CoffeeMachine\\resources.json");
-            return JsonSerializer.Deserialize<Resources>(json);
+            return JsonSerializer.Deserialize<ResourceLevels>(json);
         }
-    }
-    public class Resources
-    {
-        public double Water { get; set; }
-        public double Milk { get; set; }
-        public double Beans { get; set; }
     }
 }
