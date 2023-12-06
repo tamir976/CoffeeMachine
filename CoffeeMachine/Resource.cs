@@ -7,13 +7,9 @@ using System.Text.Json;
 using System.IO;
 namespace CoffeeMachine
 {
-    public class Resource : Coffee
+    public class Resource 
     {
 
-        public override void Brew()
-        {
-            
-        }
         private ResourceLevels? resource;
         public void ResourceCheck()
         {
@@ -23,8 +19,7 @@ namespace CoffeeMachine
         
         private ResourceLevels ReadResource()
         {
-            string json = File.ReadAllText("D:\\Coffee machine\\CoffeeMachine\\CoffeeMachine\\resources.json");
-            return JsonSerializer.Deserialize<ResourceLevels>(json);
+            return Coffee.ReadResourceLevels();
         }
     }
 }
